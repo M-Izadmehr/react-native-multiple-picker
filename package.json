@@ -1,0 +1,35 @@
+{
+  "name": "react-native-multiple-picker",
+  "version": "0.0.1",
+  "description": "A fancy cross-platform multiple picker module for react-native.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/S4liz/react-native-multiple-picker.git"
+  },
+  "dependencies": {
+    "react-native-linear-gradient": "^2.3.0"
+  },
+  "keywords": [
+    "react-native",
+    "picker",
+    "multi",
+    "multiple",
+    "select",
+    "selector",
+    "date",
+    "date-picker",
+    "time-picker",
+    "wheel-picker"
+
+  ],
+  "author": "Mojtaba Izadmehr",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/S4liz/react-native-multiple-picker/issues"
+  },
+  "homepage": "https://github.com/S4liz/react-native-multiple-picker#readme"
+}
