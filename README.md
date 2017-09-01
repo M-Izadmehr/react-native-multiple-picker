@@ -15,7 +15,7 @@ A fancy cross-platform multiple picker module for react-native, inspired by conc
 Installation
 -------------
 
-**react-native-multiple-picker** uses **npm install react-native-linear-gradient --save** module to handle the gradient effect. Installing  **react-native-multiple-picker** should automatically install the dependencies, however, linear gradient has to be linked. In order to install this module suiccessfuly follow the this procedure:
+**react-native-multiple-picker** uses **react-native-linear-gradient** module to handle the gradient effect. Installing  **react-native-multiple-picker** should automatically install the dependencies, however, linear gradient has to be linked. In order to install this module suiccessfuly follow the this procedure:
 
 #### <i class="icon-file"></i> Installing react-native-linear-gradient
 
