@@ -50,7 +50,14 @@ after linking the project, re-build the project by the following code (based on 
     npm install --save react-native-multiple-picker
 
 
+----------
 
+
+Issues
+-------------------
+> **Note:**
+
+> if by any chance after installation, the the picker worked but, the gardient background did not show, follow manual installation procedure of react-native-linear-gradien (sometimes rnpm link does not work properly)
 
 ----------
 
