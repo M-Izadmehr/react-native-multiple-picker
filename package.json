@@ -1,6 +1,6 @@
 {
   "name": "react-native-multiple-picker",
-  "version": "0.0.2",
+  "version": "0.0.21",
   "description": "A fancy cross-platform multiple picker module for react-native.",
   "main": "index.js",
   "scripts": {
