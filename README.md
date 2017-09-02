@@ -65,10 +65,10 @@ Issues
 
 ----------
 
-Props
+# Props
 -------------------
-## Main Props
-### data
+### Main Props
+#### data
 data is the main props which shows the category of all the data to be shown in the picker. It should be formatted as an array of categories, in which each category is an array of items. For instance, if you want to show three categories of days, months and years (for a date picker) you can use the following style:
 
 ```
@@ -110,13 +110,13 @@ A better way (ES6) to form numeric arrays from a starting point to an ending one
         });
 
 ```
-### label
+#### label
 label is the label of each data category and should simply be entered as an array of strings, such as:
 
 ```
         let label = ['Day', 'Month', 'Year'];
 ```
-## onChange
+#### onChange
 this prop is the function which handles the returned value from the picker. The api of this function is:
 
 ```
@@ -126,9 +126,9 @@ onChange={(option) => {
                     }}
 ```
 
-## Additional Props
+### Additional Props
 
-### gradientStyle
+#### gradientStyle
 In this version the styling of the color gradient, including different gradient colors, and their locations can be modified. **gradientStyle** should be entered as and object such as:
 
 ```
@@ -154,13 +154,13 @@ const gradStyle = {
         };
  ```
 
-### height
+#### height
 
 This parameters determines the relative hight of the picker section, and should be a number between 0 to 1. This parameter is usefull when the number of your data points are limited and a full screen picker looks ugly. For example:
 
 ``` height={0.7} ```
 
-### initValue
+#### initValue
 initValue can be used when you want your picker to be prefilled with some specefic data. The formatting of initValue should be an array with the length equal to the number of data categories. **Each element of this array points to index of the data which should be selected**. For example:
 
 ```initValue = [0,1,2]```
