@@ -3,18 +3,14 @@ import {Text, View, FlatList, TouchableWithoutFeedback} from 'react-native';
 class PickerCategory extends Component {
     constructor(props) {
         super(props);
+        if(this.props.initValue){
+            var initValue = this.props.initValue[this.props.catId];
+        }
+
         this.state = {
-            selectedId: null,
+            selectedId: initValue,
         }
     }
-
-
-
-
-
-
-
-
 
     buttonPress = (item) => {
         this.setState({selectedId: item.key});
@@ -47,13 +43,13 @@ class PickerCategory extends Component {
         return (
             <View style={{flex: 1,width:'100%'}}>
 
-            <FlatList style={{flex: 1,width:'100%'}}
-                      data={this.props.data}
-                      removeClippedSubviews={true}
-                      renderItem={({item}) => {
-                          return this.renderItem(item)
-                      }}
-            />
+                <FlatList style={{flex: 1,width:'100%'}}
+                          data={this.props.data}
+                          removeClippedSubviews={true}
+                          renderItem={({item}) => {
+                              return this.renderItem(item)
+                          }}
+                />
             </View>
         );
     }

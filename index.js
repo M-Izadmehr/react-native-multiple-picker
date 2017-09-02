@@ -1,8 +1,6 @@
 'use strict';
 
-import React, {
-    PropTypes
-} from 'react';
+import React, {PropTypes} from 'react';
 
 import {
     View,
@@ -15,7 +13,7 @@ import {
 import PickerCategory from'./PickerCategory';
 import styles from './style';
 import BaseComponent from './BaseComponent';
-import LinearGradient from 'react-native-linear-gradient'
+import LinearGradient from 'react-native-linear-gradient';
 
 const {width} = Dimensions.get('window');
 
@@ -24,6 +22,8 @@ const propTypes = {
     onChange: PropTypes.func,
     initValue: PropTypes.array,
     label: PropTypes.array,
+    height: PropTypes.number,
+    gradientStyle: PropTypes.object,
 };
 
 const defaultProps = {
@@ -35,6 +35,14 @@ const defaultProps = {
     selectStyle: {},
     cancelStyle: {},
     label: [],
+    height: 1,
+    gradientStyle: {
+        start: {x: 0.0, y: 0},
+        end: {x: 1, y: 1.0},
+        locations: [0, 1],
+        colors: ['#743e4e', '#221d33']
+    },
+
 };
 
 
@@ -59,12 +67,9 @@ export default class ModalPicker extends BaseComponent {
         };
     }
 
-    currentCatId = 0;
 
     componentDidMount() {
         this.setState({selection: this.props.initValue});
-        this.setState({cancelText: this.props.cancelText});
-
     }
 
     onChange = (item, catId) => {
@@ -73,7 +78,7 @@ export default class ModalPicker extends BaseComponent {
         this.setState(selection);
 
 
-    }
+    };
 
     close() {
         if (this.props.initValue) {
@@ -113,8 +118,8 @@ export default class ModalPicker extends BaseComponent {
 
 
     renderOptionList(catItem, catId, catNum) {
-        let borderLeft = catId===0 ? 0: 20;
-        let borderRight = catId===catNum-1 ?0 :20;
+        let borderLeft = catId === 0 ? 0 : 20;
+        let borderRight = catId === catNum - 1 ? 0 : 20;
 
         return (
             <View key={catId} style={{width: width * 0.8 / this.props.data.length}}>
@@ -123,7 +128,7 @@ export default class ModalPicker extends BaseComponent {
                     width: '100%',
                     alignItems: 'center',
                     backgroundColor: '#ffffff05',
-                    borderBottomRightRadius:borderRight,
+                    borderBottomRightRadius: borderRight,
                     borderBottomLeftRadius: borderLeft,
                     marginBottom: 2,
                     elevation: 1
@@ -131,6 +136,7 @@ export default class ModalPicker extends BaseComponent {
                     <Text style={{color: '#f9976c', fontSize: 20}}>{this.props.label[catId]}</Text>
                 </View>
                 <PickerCategory key={catId}
+                                initValue={this.props.initValue}
                                 catId={catId}
                                 catNum={catNum}
                                 data={catItem}
@@ -149,24 +155,26 @@ export default class ModalPicker extends BaseComponent {
             return this.renderOptionList(catItem, catId, catNum);
         });
 
+        let pickerHeight = 88;
+        let propsHeight = this.props.height;
+
+        if (propsHeight * 1) {
+            propsHeight = propsHeight < 0 ? 0 : propsHeight;
+            propsHeight = propsHeight > 1 ? 1 : propsHeight;
+
+            pickerHeight = 88 * propsHeight;
+        }
         return (
-            <View style={{flex: 1, flexDirection: 'column', justifyContent: 'space-between'}}>
+            <View style={{flex: 1, height: '100%', justifyContent: 'center'}}>
                 <View style={{
-                    height: '88%',
                     flexDirection: 'row',
                     justifyContent: 'space-between',
-                    alignItems: 'center'
+                    height: pickerHeight + '%'
                 }}>
                     {catShow}
                 </View>
 
-                <View style={{
-                    height: '12%',
-                    flex: 1,
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    alignItems: 'flex-end'
-                }}>
+                <View style={{flexDirection: 'row', justifyContent: 'space-between',}}>
 
                     <TouchableOpacity onPress={this.close}>
                         <View style={styles.cancelStyle}>
@@ -180,12 +188,12 @@ export default class ModalPicker extends BaseComponent {
                         </View>
                     </TouchableOpacity>
                 </View>
+
             </View>
         );
     };
 
     render() {
-
 
         const dp = (
 
@@ -193,18 +201,18 @@ export default class ModalPicker extends BaseComponent {
                    animationType={this.state.animationType}>
 
                 <TouchableWithoutFeedback onPress={this.close}>
-                <LinearGradient
-                    start={{x: 0.0, y: 0}}
-                    end={{x: 1, y: 1.0}}
-                    locations={[0, 1]}
-                    colors={['#743e4efa', '#221d33fa']}
-                    style={{
-                        height: '100%',
-                        width: '100%'
-                    }}>
+                    <LinearGradient
+                        start={this.props.gradientStyle.start}
+                        end={this.props.gradientStyle.end}
+                        locations={this.props.gradientStyle.locations}
+                        colors={this.props.gradientStyle.colors}
+                        style={{
+                            height: '100%',
+                            width: '100%'
+                        }}>
 
-                    {this.renderCategory()}
-                </LinearGradient>
+                        {this.renderCategory()}
+                    </LinearGradient>
                 </TouchableWithoutFeedback>
 
             </Modal>
