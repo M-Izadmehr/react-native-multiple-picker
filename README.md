@@ -57,7 +57,9 @@ Issues
 -------------------
 > **Note:**
 
-> if by any chance after installation, the the picker worked but, the gardient background did not show, follow manual installation procedure of react-native-linear-gradien (sometimes rnpm link does not work properly)
+> if by any chance after installation, the the picker worked but, the gardient background did not show, follow manual installation procedure of react-native-linear-gradient (sometimes rnpm link does not work properly):
+
+ https://github.com/react-native-community/react-native-linear-gradient
 
 ----------
 
