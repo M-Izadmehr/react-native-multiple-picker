@@ -57,7 +57,7 @@ Issues
 -------------------
 > **Note:**
 
-> if by any chance after installation, the the picker worked but, the gardient background did not show, follow manual installation procedure of react-native-linear-gradient (sometimes rnpm link does not work properly):
+> if by any chance after installation, the the picker worked but, the gardient background did not show (in this case you only see the close and accept buttons and no background, with a probably red border around the screen), the problem is with linking. As a result, follow manual installation procedure of react-native-linear-gradient (sometimes rnpm link does not work properly):
 
  https://github.com/react-native-community/react-native-linear-gradient
 
@@ -99,7 +99,10 @@ let Months = [
         const data  = [Days, Months];
 ```
 
-**Note: The key property should acts as index of each array and initValue and the value returned by the picker are selected based on the key; hence, it is suggested to start key values always from 0.**
+> **Note:**
+
+> The **key** property should acts as index of each array. **initValue** and the value returned by the picker are selected based on the key; hence, it is suggested to start key values always from **0**, and in an ascending order.
+
 
 A better way (ES6) to form numeric arrays from a starting point to an ending one (for example years between 1970 is:
 
