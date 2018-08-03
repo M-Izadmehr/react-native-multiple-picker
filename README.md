@@ -198,11 +198,11 @@ let Months = [
               {key: 4, label: '5'},
               {key: 5, label: '6'},
               {key: 6, label: '7'},
-              {key: 6, label: '8'},
-              {key: 6, label: '9'},
-              {key: 6, label: '10'},
-              {key: 6, label: '11'},
-              {key: 6, label: '12'},
+              {key: 7, label: '8'},
+              {key: 8, label: '9'},
+              {key: 9, label: '10'},
+              {key: 10, label: '11'},
+              {key: 11, label: '12'},
            ]
 
         const data  = [Days, Months];
